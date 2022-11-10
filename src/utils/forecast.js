@@ -11,8 +11,9 @@ const forecast= (latitude,longitude,callback) => {
         else {
             const temp= body.current.temperature
             const like= body.current.feelslike
-            callback(undefined,'It is currently'+temp,'degrees out,It feels like',+like,'degrees out.')
+            const time= body.current.observation_time
+            callback(undefined,'It is currently '+temp+' degrees out,It feels like '+like+' degrees out, as at '+time)
         }
     })
 } 
-module.exports= forecast
+module.exports= forecast 
